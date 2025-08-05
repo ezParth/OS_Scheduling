@@ -76,7 +76,10 @@ func Bankers() {
 		needed = append(needed, maxNeeded[i]-allocation[i])
 		process = append(process, Process{maxNeeded: maxNeeded[i], allocated: allocation[i], needed: needed[i], done: false, processStr: "P" + p})
 	}
-	BankerAlgorithm()
+	DeadLock := BankerAlgorithm()
+	if !DeadLock {
+		fmt.Println("DeadLock is Present!")
+	}
 }
 
 func main() {
